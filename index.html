@@ -18,10 +18,34 @@
 	<link rel="stylesheet" type="text/css" href="resources/css/reset.min.css">
 	<link rel="stylesheet" type="text/css" href="resources/css/style.css" id="theme">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script type="text/javascript">
+		function swapStyleSheet() {
+			if (document.documentElement.className == 'light') {
+				document.documentElement.className = 'dark';
+				localStorage.setItem("themeSet", 'dark');
+			}
+			else {
+				document.documentElement.className = 'light';
+				localStorage.setItem("themeSet", 'light');
+			}
+
+			document.getElementById('slider').click();
+		}
+	</script>
+	<script type="text/javascript">
+		function setStyle() {
+			if (localStorage.getItem("themeSet") === 'light')
+				swapStyleSheet();
+		} 
+	</script>
 </head>
 
 <body>
-
+	<div class="container" id="sliderContainer">
+		<input type="checkbox" id="slider">
+		<span class="slider round" onclick="swapStyleSheet()"></span>
+	</div>
 	<h1>
 		Stadens Kungar 2020
 	</h1>
@@ -81,9 +105,11 @@
 
 
 
-	<!-- JavaScriptss -->
+	<!-- JavaScripts -->
 	<script src="resources/js/main.js"></script>
 	<script>document.getElementById("defaultOpen").click();	</script>
+	<script>setStyle()</script>
+
 </body>
 
 </html>

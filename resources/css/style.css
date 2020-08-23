@@ -13,8 +13,35 @@
   --wrong-color: #795050;
 }
 
+.dark
+{
+  --main-bg-color: #3a3a3a;
+  --main-secondarybg-color: #5C5C5C;
+  --main-text-color: #B4B4B4;
+  --second-text-color: #cccbcb;
+  --highlight-color: rgb(255, 177, 103);
+  --highlight-hover-color: rgb(197, 138, 82);
+  --darkest-color: #000000;
+  --lightest-color: #ffffff;
+  --correct-color: #3e613e;
+  --wrong-color: #795050;
+}
+
+.light{
+  --main-bg-color: #dadada;
+  --main-secondarybg-color: #bbbbbb;
+  --main-text-color: #1d1d1d;
+  --second-text-color: #414141;
+  --highlight-color: rgb(36, 75, 63);
+  --highlight-hover-color: rgb(70, 148, 125);
+  --darkest-color: #ffffff;
+  --lightest-color: #000000;
+  --correct-color: #7cbe7c;
+  --wrong-color: #be7d7d;
+}
+
 body {
-  background: #3a3a3a;
+  background: var(--main-bg-color);
   padding: 5% 0 0 0;
 }
 
@@ -462,7 +489,7 @@ ul.anotherTodo#anotherCompleted {
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid var(--main-secondarybg-color);
   border-top: none;
   height: 74%;
 }
@@ -521,4 +548,80 @@ button.ticks:hover {
   border: 1px solid var(--highlight-hover-colorr)!important;
   background-color: var(--highlight-hover-color)!important;
   border-radius: 4px;
+}
+
+#sliderContainer {
+  height: 50px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+input[type="checkbox" i] {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  height: 40px;
+  width: 60px;
+  top: 20px;
+  right: 10%;
+  bottom: 0;
+  background-color: var(--highlight-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  left: 0px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: 0 0px 15px #2020203d;
+  background: var(--main-secondarybg-color) url('https://i.ibb.co/FxzBYR9/night.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input:checked + .slider {
+  background-color: var(--highlight-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--highlight-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
+  background: var(--main-secondarybg-color) url('https://i.ibb.co/7JfqXxB/sunny.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
