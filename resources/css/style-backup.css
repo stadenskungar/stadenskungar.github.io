@@ -1,33 +1,18 @@
 @charset "UTF-8";
 
-:root{
-  --main-bg-color: #3a3a3a;
-  --main-secondarybg-color: #5C5C5C;
-  --main-text-color: #B4B4B4;
-  --second-text-color: #cccbcb;
-  --highlight-color: rgb(255, 177, 103);
-  --highlight-hover-color: rgb(197, 138, 82);
-  --darkest-color: #000000;
-  --lightest-color: #ffffff;
-  --correct-color: #3e613e;
-  --wrong-color: #795050;
-}
-
 body {
-  background: #3a3a3a;
-  padding: 5% 0 0 0;
+  background: #edf0f1;
+  padding: 50px 0 0 0;
 }
 
 h1{
-  color:var(--main-text-color);
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 20px;
 }
 
 h2{
-  color:var(--main-text-color);
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 50px;
 }
 
 label{
@@ -41,6 +26,92 @@ body, input, button {
 
 .noFill {
   fill: none;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  left: 0;
+  z-index: 5;
+
+  background: #25b99a;
+  box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+header input {
+  width: 100%;
+  height: 50px;
+  float: left;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-indent: 18px;
+  padding: 0 60px 0 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px 25px 25px 5px;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+header input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header input:-moz-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header input::-moz-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header button {
+  width: 50px;
+  height: 50px;
+
+  position:absolute;
+  top:15px;
+  right:15px;
+  z-index:2;
+
+  border-radius: 25px;
+  background: #fff;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+header button svg {
+  width: 16px;
+  height: 16px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  margin: -8px 0 0 -8px;
+}
+
+header button svg .fill {
+  fill: #25b99a;
 }
 
 .container {
@@ -60,10 +131,10 @@ ul.todo li {
   float: left;
   font-size: 14px;
   font-weight: 500;
-  color:var(--second-text-color);
+  color: #444;
   line-height: 22px;
 
-  background: var(--main-secondarybg-color);
+  background: #fff;
   border-radius: 5px;
   position: relative;
   box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
@@ -104,7 +175,7 @@ ul.todo li .buttons button:last-of-type:before {
   content: '';
   width: 1px;
   height: 30px;
-  background: var(--highlight-color);
+  background: #edf0f1;
 
   position: absolute;
   top: 10px;
@@ -124,30 +195,29 @@ ul.todo li .buttons button svg {
 
 ul.todo li .buttons button.complete svg {
   border-radius: 11px;
-  border: 1.5px solid var(--highlight-color);
+  border: 1.5px solid #25b99a;
 
   transition: background 0.2s ease;
 }
 
 ul.todo#completed li .buttons button.complete svg {
-  background:var(--highlight-color);
+  background: #25b99a;
   border: 0px;
 }
 
 ul.todo:not(#completed) li .buttons button.complete:hover svg {
-  background:var(--highlight-color);
+  background: rgba(37, 185, 154, 0.75);
 }
 
 ul.todo:not(#completed) li .buttons button.complete:hover svg .fill {
-  fill: var(--darkest-color);
+  fill: #fff;
 }
 
 ul.todo#completed li .buttons button.complete svg .fill {
-  fill: var(--darkest-color);
+  fill: #fff;
 }
 
 ul.todo li .buttons button svg .fill {
-  fill: var(--lightest-color);
   transition: fill 0.2s ease;
 }
 
@@ -158,24 +228,24 @@ ul.todo#completed {
 
 ul.todo#completed:before {
   content: '';
-  width: 60%;
+  width: 150px;
   height: 1px;
-  background:var(--highlight-color);
+  background: #d8e5e0;
 
   position: absolute;
   top: 30px;
-  left: 20%;
+  left: 50%;
 
-  margin: 0 0 0 0px;
+  margin: 0 0 0 -75px;
 }
 
 ul.todo#todo:empty:after {
-  content: 'Done';
+  content: 'You have nothing to-do!';
   margin: 15px 0 0 0;
 }
 
 ul.todo#completed:empty:after {
-  content: 'Complete a Task';
+  content: 'You have yet to complete any tasks.';
 }
 
 ul.todo#todo:after,
@@ -184,7 +254,7 @@ ul.todo#completed:after {
   display: block;
   text-align: center;
   font-size: 12px;
-  color: var(--highlight-color);
+  color: #aaa;
 }
 
 /*othertodo*/
@@ -199,10 +269,10 @@ ul.otherTodo li {
   float: left;
   font-size: 14px;
   font-weight: 500;
-  color: var(--second-text-color);
+  color: #444;
   line-height: 22px;
 
-  background: var(--main-secondarybg-color);
+  background: #fff;
   border-radius: 5px;
   position: relative;
   box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
@@ -243,7 +313,7 @@ ul.otherTodo li .buttons button:last-of-type:before {
   content: '';
   width: 1px;
   height: 30px;
-  background: var(--highlight-color);
+  background: #edf0f1;
 
   position: absolute;
   top: 10px;
@@ -263,31 +333,30 @@ ul.otherTodo li .buttons button svg {
 
 ul.otherTodo li .buttons button.complete svg {
   border-radius: 11px;
-  border: 1.5px solid var(--highlight-color);
+  border: 1.5px solid #25b99a;
 
   transition: background 0.2s ease;
 }
 
 ul.otherTodo#otherCompleted li .buttons button.complete svg {
-  background: var(--highlight-color);
+  background: #25b99a;
   border: 0px;
 }
 
 ul.otherTodo:not(#otherCompleted) li .buttons button.complete:hover svg {
-  background: var(--highlight-color);
+  background: rgba(37, 185, 154, 0.75);
 }
 
 ul.otherTodo:not(#otherCompleted) li .buttons button.complete:hover svg .fill {
-  fill: var(--darkest-color);
+  fill: #fff;
 }
 
 ul.otherTodo#otherCompleted li .buttons button.complete svg .fill {
-  fill: var(--darkest-color);
+  fill: #fff;
 }
 
 ul.otherTodo li .buttons button svg .fill {
   transition: fill 0.2s ease;
-  fill: var(--lightest-color);
 }
 
 ul.otherTodo#otherCompleted {
@@ -297,24 +366,24 @@ ul.otherTodo#otherCompleted {
 
 ul.otherTodo#otherCompleted:before {
   content: '';
-  width: 60%;
+  width: 150px;
   height: 1px;
-  background: var(--highlight-color);
+  background: #d8e5e0;
 
   position: absolute;
   top: 30px;
-  left: 20%;
+  left: 50%;
 
-  margin: 0 0 0 0px;
+  margin: 0 0 0 -75px;
 }
 
 ul.otherTodo#otherTodo:empty:after {
-  content: 'Done';
+  content: 'You have nothing to-do!';
   margin: 15px 0 0 0;
 }
 
 ul.otherTodo#otherCompleted:empty:after {
-  content: 'Complete a Task';
+  content: 'You have yet to complete any tasks.';
 }
 
 ul.otherTodo#otherTodo:after,
@@ -323,7 +392,7 @@ ul.otherTodo#otherCompleted:after {
   display: block;
   text-align: center;
   font-size: 12px;
-  color: var(--highlight-color);
+  color: #aaa;
 }
 
 /*Another TODO*/
@@ -338,11 +407,11 @@ ul.anotherTodo li {
   float: left;
   font-size: 14px;
   font-weight: 500;
-  color: var(--second-text-color);
+  color: #444;
   line-height: 22px;
   text-align: center;
 
-  background: var(--main-secondarybg-color);
+  background: #fff;
   border-radius: 5px;
   position: relative;
   box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
@@ -374,7 +443,6 @@ ul.anotherTodo li .buttons button {
   box-shadow: none;
   outline: none;
   cursor: pointer;
-  color: var(--highlight-color);
 
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -428,14 +496,12 @@ ul.anotherTodo#anotherCompleted {
 /* Style the tab */
 .tab {
   overflow: hidden;
-  border: 1px solid rgb(71, 71, 71);
-  background-color: var(--main-secondarybg-color);
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
-  color: var(--highlight-color);
-  background-color: var(--main-secondarybg-color);
   font-weight: 700;
   background-color: inherit;
   float: left;
@@ -449,37 +515,29 @@ ul.anotherTodo#anotherCompleted {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #2b2b2b;
+  background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: var(--highlight-color);
-  color: var(--darkest-color);
+  background-color: #ccc;
 }
 
 /* Style the tab content */
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid #ccc;
   border-top: none;
-  height: 74%;
 }
 
 .fa {
-  color: var(--highlight-color);
+  color: rgba(37, 185, 154, 0.75);
 }
-
-.fa:hover{
-  color: var(--lightest-color);
-}
-
 button.quiz {
-  border: 1px solid var(--main-secondarybg-color)!important;
+  border: 1px solid #7e7e7e!important;
   border-radius: 4px;
-  background-color:var(--main-bg-color)!important;
-  color: var(--lightest-color)!important;
+  background-color: #b9b9b9!important;
   width: 30%!important;
   margin-left: 1.6667%;
   margin-right: 1.6667%;
@@ -492,33 +550,20 @@ button.quiz:hover {
 }
 
 button.quiz.correct {
-  border: 1px solid var(--correct-color)!important;
-  background-color: var(--correct-color)!important;
+  border: 1px solid #7e7e7e!important;
+  background-color: #71aa7a!important;
   width: 30%!important;
 }
 button.quiz.incorrect {
-  border: 1px solid var(--wrong-color)!important;
-  background-color: var(--wrong-color)!important;
+  border: 1px solid #7e7e7e!important;
+  background-color: #aa7171!important;
   width: 30%!important;
 }
 
 button {
-  color: var(--lightest-color);
-  font-weight: 700;
+  color: #444;
 }
 
 button.ticks {
   font-size: xx-large;
-  color: var(--darkest-color)!important;
-  border: 1px solid var(--highlight-color)!important;
-  background-color: var(--highlight-color)!important;
-  border-radius: 4px;
-}
-
-button.ticks:hover {
-  font-size: xx-large;
-  color: var(--darkest-color)!important;
-  border: 1px solid var(--highlight-hover-colorr)!important;
-  background-color: var(--highlight-hover-color)!important;
-  border-radius: 4px;
 }

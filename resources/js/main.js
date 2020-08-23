@@ -188,7 +188,7 @@ function addItemToDOM(counter, id, text, points, completed, link) {
   var infoText = document.createElement('button');
   if (link != "") {
 
-    infoText.classList.add("fa", "fa-info-circle", "fa-6");
+    infoText.classList.add("fa", "fa-info-circle", "fa-lg");
 
     infoText.onclick = function () { window.open(link, '_blank'); };
   }
